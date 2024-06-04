@@ -11,6 +11,8 @@ def single_player():
     # Se inicia un ciclo para pedir el moviento e imprimir el tablero
     while True:
         direction = input("\nIngrese su movimento a, w, s, d: ")
-        if direction:
+        if direction.lower() in ["a", "w", "s","d"]:
             player_board = move(player_board, direction)
             board_formatter(player_board)
+        else:
+            print("Por favor, ingrese un movimiento válido.")

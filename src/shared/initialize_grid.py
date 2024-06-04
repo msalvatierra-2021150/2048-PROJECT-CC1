@@ -8,8 +8,10 @@ def initialize_grid():
         # Genera una fila
         [0 for _ in range(4)]
 
-        # Repite la creación de las filas 4 veces
+        # Repite la creación de las filas 4 veces.
         for _ in range(4)
     ]
+    # Agrego 2 tiles aleatoriamente.
+    add_random_tile(grid)
     add_random_tile(grid)
     return grid
