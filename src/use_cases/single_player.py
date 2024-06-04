@@ -6,14 +6,14 @@ from ..shared.board_formatter import board_formatter
 def single_player(base, nameUser):
     # Se genera el tablero y se imprime
     player_board = initialize_grid(base)
-    board_formatter(player_board)
+    board_formatter(grid=player_board, sum=0)
     # Se inicia un ciclo para pedir el moviento e imprimir el tablero
     play = True
     while play == True:
         direction = input("\nIngrese su movimento a, w, s, d: ")
         if direction and play == True:
-            player_board = move(player_board, direction, base, nameUser)
-            board_formatter(player_board)
+            player_board, sum = move(player_board, direction, base, nameUser)
+            board_formatter(player_board, sum=sum)
             for i in range(4):
                 if (base * 1024) in player_board[i]:
                     print("\nllego a", base * 1024, "felicitaciones has ganado el juego. :D\n")

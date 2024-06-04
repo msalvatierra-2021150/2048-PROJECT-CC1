@@ -1,9 +1,11 @@
+sum = 0
+
 def transpose(grid):
     # Devuelve un nuevo grid donde la las columnas pasan a ser filas y las filas a ser columnas.
     return [list(row) for row in zip(*grid)]
 
 def move_left(grid):
-    puntajeConbinacion = 0
+    global sum
     moved = False
     # Ciclo fila por fila de la matriz.
     for row in grid:
@@ -21,7 +23,7 @@ def move_left(grid):
 
             if row_tiles[i] == row_tiles[i + 1]:
                 row_tiles[i] *= 2
-                puntajeConbinacion = row_tiles[i]
+                sum += row_tiles[i]
                 row_tiles[i + 1] = 0
                 moved = True
 
@@ -32,27 +34,27 @@ def move_left(grid):
         row[:] = row_tiles + ( [0] * (4 - len(row_tiles)))
         if row_tiles != row:
             moved = True
-    return moved
+    return moved, sum
 
 # La lógica se mantiene igual, se hace un revés el grid.
 def move_right(grid):
     grid[:] = [row[::-1] for row in grid]
-    moved = move_left(grid)
+    moved, sum = move_left(grid)
     grid[:] = [row[::-1] for row in grid]
-    return moved
+    return moved, sum
 
 # La lógica se mantiene igual, se transpone el grid.
 def move_up(grid):
     grid[:] = transpose(grid)
-    moved = move_left(grid)
+    moved, sum = move_left(grid)
     grid[:] = transpose(grid)
-    return moved
+    return moved, sum
 
 # La lógica se mantiene igual, se transpone y se hace un revés el grid.
 def move_down(grid):
     grid[:] = transpose(grid)
     grid[:] = [row[::-1] for row in grid]
-    moved = move_left(grid)
+    moved, sum = move_left(grid)
     grid[:] = [row[::-1] for row in grid]
     grid[:] = transpose(grid)
-    return moved
+    return moved, sum
