@@ -3,6 +3,7 @@ def transpose(grid):
     return [list(row) for row in zip(*grid)]
 
 def move_left(grid):
+    puntajeConbinacion = 0
     moved = False
     # Ciclo fila por fila de la matriz.
     for row in grid:
@@ -20,6 +21,7 @@ def move_left(grid):
 
             if row_tiles[i] == row_tiles[i + 1]:
                 row_tiles[i] *= 2
+                puntajeConbinacion = row_tiles[i]
                 row_tiles[i + 1] = 0
                 moved = True
 

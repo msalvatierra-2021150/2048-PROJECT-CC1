@@ -1,9 +1,8 @@
 from .add_random_tile import add_random_tile
 
 # Función que genera el tablero del juego.
-def initialize_grid():
-
-    # Matriz (Tablero)
+def initialize_grid(base):
+    #Matriz (Tablero)
     grid = [
         # Genera una fila
         [0 for _ in range(4)]
@@ -11,5 +10,6 @@ def initialize_grid():
         # Repite la creación de las filas 4 veces
         for _ in range(4)
     ]
-    add_random_tile(grid)
+    add_random_tile(grid, base)
+    add_random_tile(grid, base)
     return grid

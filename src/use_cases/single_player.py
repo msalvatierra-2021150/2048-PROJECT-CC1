@@ -3,14 +3,18 @@ from ..shared.move import move
 from ..shared.board_formatter import board_formatter
 
 # Modalidad para un jugador
-def single_player():
+def single_player(base, nameUser):
     # Se genera el tablero y se imprime
-    player_board = initialize_grid()
+    player_board = initialize_grid(base)
     board_formatter(player_board)
-
     # Se inicia un ciclo para pedir el moviento e imprimir el tablero
-    while True:
+    play = True
+    while play == True:
         direction = input("\nIngrese su movimento a, w, s, d: ")
-        if direction:
-            player_board = move(player_board, direction)
+        if direction and play == True:
+            player_board = move(player_board, direction, base, nameUser)
             board_formatter(player_board)
+            for i in range(4):
+                if (base * 1024) in player_board[i]:
+                    print("\nllego a", base * 1024, "felicitaciones haz ganado el juego. :D\n")
+                    play = False
