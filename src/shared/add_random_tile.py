@@ -1,7 +1,7 @@
 import random
 
 # Función para añadir tiles al tablero donde hayan posiciones vacías.
-def add_random_tile(grid):
+def add_random_tile(grid, base):
 
     # Arreglo para las coordenadas vacías.
     empty_positions = [
@@ -18,4 +18,4 @@ def add_random_tile(grid):
         # Toma una fila y un elemento.
         x, y = random.choice(empty_positions)
         # Devuelve un dos o un cuatro para la tile en esa coordenada
-        grid[x][y] = 2 if random.random() < 0.9 else 4
+        grid[x][y] = base if random.random() < 0.9 else base * 2
