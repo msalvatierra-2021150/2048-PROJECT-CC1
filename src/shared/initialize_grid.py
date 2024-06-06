@@ -12,4 +12,5 @@ def initialize_grid(base):
     ]
     add_random_tile(grid, base)
     add_random_tile(grid, base)
+
     return grid
