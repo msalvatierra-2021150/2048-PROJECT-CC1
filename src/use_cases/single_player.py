@@ -2,9 +2,10 @@ from ..shared.initialize_grid import initialize_grid
 from ..shared.move import move
 from ..shared.board_formatter import board_formatter
 from ..shared.check_for_moves import check_for_moves
+from ..shared.max_cell_searcher import max_cell_searcher
 
 # Modalidad para un jugador
-def single_player(base, nameUser):
+def single_player(base, nameUser, modality):
     # Se genera el tablero y se imprime
     player_board = initialize_grid(base)
     board_formatter(grid=player_board, sum=0)
@@ -15,13 +16,14 @@ def single_player(base, nameUser):
         if not check_for_moves(player_board):
             print("Ya no hay movimientos Posibles!\n")
             play = False
-            _mainLoop()
-            return
+            max_cell = max_cell_searcher(player_board)
+
+            return [sum, max_cell, movements]
 
         direction = input("\nIngrese su movimiento a, w, s, d: ")
         if direction and play:
             # Movimiento y posterior impresión
-            player_board, sum = move(player_board, direction, base, nameUser)
+            player_board, sum, movements = move(player_board, direction, base, nameUser, modality)
             board_formatter(player_board, sum=sum)
 
             # Chequeo si gano el juego
@@ -29,10 +31,6 @@ def single_player(base, nameUser):
                 if (base * 1024) in player_board[i]:
                     print("\nLlegó a", base * 1024, "¡felicitaciones has ganado el juego! :D\n")
                     play = False
-                    _mainLoop()
-                    return
+                    max_cell = max_cell_searcher(player_board)
 
-
-def _mainLoop():
-    from src.main import mainLoop
-    mainLoop()
+                    return [sum, max_cell, movements]

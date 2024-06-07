@@ -1,7 +1,18 @@
 from .add_random_tile import add_random_tile
 from .movements import move_left, move_right, move_up, move_down
 
-def move(grid, direction, base, nameUser):
+random_variable = 1
+
+single_cc_movements = 0
+p1_cc_movements = 0
+p2_cc_movements = 0
+
+def move(grid, direction, base, nameUser, modality):
+    global random_variable
+    global single_cc_movements
+    global p1_cc_movements
+    global p2_cc_movements
+
     moved = False
     sum = 0  # Initialize sum to avoid reference before assignment
     if direction == 'w' or direction == 'W':
@@ -18,4 +29,34 @@ def move(grid, direction, base, nameUser):
         moved, sum = move_right(grid)
     if moved:
         add_random_tile(grid, base)
-    return grid, sum
+    
+    cc_movements = 0
+
+    if moved == True:
+        if modality == "1":
+            single_cc_movements += 1
+            cc_movements = single_cc_movements
+
+        if modality == "2":
+            
+            if random_variable % 2 == 0:
+                p2_cc_movements += 1
+                cc_movements = p2_cc_movements
+            
+            else:
+                p1_cc_movements += 1
+                cc_movements = p1_cc_movements
+
+
+    return grid, sum, cc_movements
+
+
+def movements_reseter():
+    global single_cc_movements
+    global p1_cc_movements
+    global p2_cc_movements
+
+    single_cc_movements = 0
+    p1_cc_movements = 0
+    p2_cc_movements = 0
+    
