@@ -42,6 +42,7 @@ def move_right(grid):
     moved, sum = move_left(grid)
     grid[:] = [row[::-1] for row in grid]
     return moved, sum
+    
 
 # La lógica se mantiene igual, se transpone el grid.
 def move_up(grid):
@@ -58,3 +59,8 @@ def move_down(grid):
     grid[:] = [row[::-1] for row in grid]
     grid[:] = transpose(grid)
     return moved, sum
+
+
+def score_reseter():
+    global sum
+    sum = 0

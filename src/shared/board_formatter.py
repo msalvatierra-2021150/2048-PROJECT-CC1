@@ -5,6 +5,7 @@ def board_formatter(grid, sum):
         print("|", end="")
         for cell in row:
             if cell ==  0:
+                cell = " "
                 emptySpaces+= 1
             print(f" {cell:^3} |", end="")
         print("\n-------------------------")
