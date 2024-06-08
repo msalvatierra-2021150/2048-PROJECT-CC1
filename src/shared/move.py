@@ -1,5 +1,6 @@
 from .add_random_tile import add_random_tile
 from .movements import move_left, move_right, move_up, move_down
+from .movements import sum
 
 random_variable = 1
 
@@ -8,13 +9,15 @@ p1_cc_movements = 0
 p2_cc_movements = 0
 
 def move(grid, direction, base, nameUser, modality):
+
+    global sum
     global random_variable
     global single_cc_movements
     global p1_cc_movements
     global p2_cc_movements
 
     moved = False
-    sum = 0  # Initialize sum to avoid reference before assignment
+    sum = sum
     if direction == 'w' or direction == 'W':
         print("\n", nameUser, "se movió hacia arriba \n")
         moved, sum = move_up(grid)

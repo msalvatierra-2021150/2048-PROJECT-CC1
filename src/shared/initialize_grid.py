@@ -1,7 +1,12 @@
 from .add_random_tile import add_random_tile
 
+
+
 # Función que genera el tablero del juego.
-def initialize_grid(base):
+def initialize_grid(base, modality):
+
+
+
     #Matriz (Tablero)
     grid = [
         # Genera una fila

@@ -13,9 +13,14 @@ def scoreboard_analysis(player1, player2, p1_boardmax_num, p2_boardmax_num, p1_s
         elif p2_boardmax_num > p1_boardmax_num:
             print (w2)
         else:
-            if p1_max_moves < p2_max_moves:
+            if p1_score > p2_score:
                 print (w1)
-            elif p2_max_moves < p1_max_moves:
+            elif p2_score > p1_max_moves:
                 print (w1)
             else:
-                print("Empate. ¡Bien jugado!")
+                if p1_max_moves < p2_max_moves:
+                    print (w1)
+                elif p2_max_moves < p1_max_moves:
+                    print (w1)
+                else:
+                    print("Empate. ¡Bien jugado!")

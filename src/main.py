@@ -4,6 +4,8 @@ from .use_cases.multi_player import multi_player
 from .shared.move import movements_reseter
 from .shared.movements import score_reseter
 from src.helpers.print_2048_instructions import print_2048_instructions
+from .use_cases.player_vs_computer import player_vs_computer
+import time
 
 # Loop para mostrar el menú al usuario.
 def mainLoop():
@@ -17,7 +19,7 @@ def mainLoop():
         print("4. Ayuda ")
         print("5. Salir")
 
-        modality = input("Ingrese la opción de juego (1-5): ")
+        modality = input("\nIngrese la opción de juego (1-5): ")
 
 
         if modality in ["1", "2", "3"]:
@@ -35,18 +37,30 @@ def mainLoop():
 # Procedimiento para el modo del juego
 
 def menu(modality):
-    base = int(input("ingrese la base del juego, por ejemplo 2 o 3 para 2048 o 3072 respectivamente: "))
-    if modality == "1":
+    base = int(input("Ingrese la base del juego, por ejemplo 2 o 3 para 2048 o 3072 respectivamente: "))
+    print("Cargando...")
+    time.sleep(2)
 
+    if modality == "1":
         movements_reseter()
         score_reseter()
-        nameUser = input("Ingrese su nombre: ")
+        nameUser = input("\nIngrese su nombre: ")
         single_data = single_player(base, nameUser, modality)
+        
+        print("¡El juego ha terminado!")
+        time.sleep(2)
         single_scoreboard_formatter(single_data)
+        time.sleep(2)
         input("Presione enter para continuar: ")
         mainLoop()
 
+
     if modality == "2":
         multi_player(base, modality)
+        input("Presione enter para continuar: ")
+        mainLoop()
+
+    if modality == "3":
+        player_vs_computer(base, modality)
         input("Presione enter para continuar: ")
         mainLoop()
