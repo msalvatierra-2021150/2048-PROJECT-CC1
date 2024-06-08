@@ -12,7 +12,7 @@ def multi_player(base, modality):
 
     #primer jugador
     score_reseter()
-    print("\n\nTurno del jugador: ", p1_name)
+    print("\n\nTurno del jugador:", p1_name)
     data_p1 = single_player(base, p1_name, modality)
     print(f"{p1_name} ha terminado de jugar.")
 

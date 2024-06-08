@@ -29,7 +29,7 @@ def mainLoop():
         elif modality == "4" or modality.lower() == "ayuda":
             print_2048_instructions()
         elif modality == "5" or modality.lower() == "salir":
-            print("¡Adiós, gracias por jugar!")
+            print("¡Adiós! Gracias por jugar!\n")
             break
         else:
             print("\nPor favor ingrese una opción válida.")
