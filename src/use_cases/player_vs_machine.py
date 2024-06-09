@@ -14,14 +14,18 @@ def player_vs_machine(base, modality):
     data_p1 = single_player(base, m_player_name, modality)
 
     time.sleep(2)
-    input(f"Presione 'Enter' para el turno de la máquina")
+    input(f"Presione 'Enter' para el turno de la máquina...")
 
     #Turno de la máquina
     score_reseter()
-    print("Turno de la máquina")
-    m_machine_data = machine(base, nameUser="Máquina", modality= modality) #Agregar funcionalidad de máquina. 
-
+    movements_reseter()
+    print("Turno de la Máquina.")
+    m_machine_data = machine(base, nameUser="Máquina", modality=modality) #Agregar funcionalidad de máquina. 
+    print("¡El juego ha terminado!")
+    
+    time.sleep(2)
     scoreboard_formatter(m_player_name, data_p1, "Máquina", m_machine_data, base)
+    time.sleep(2)
     movements_reseter()
 
     return

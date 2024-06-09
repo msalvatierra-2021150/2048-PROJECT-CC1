@@ -36,30 +36,35 @@ def mainLoop():
 # Procedimiento para el modo del juego
 
 def menu(modality):
-    base = int(input("Ingrese la base del juego, por ejemplo 2 o 3 para 2048 o 3072 respectivamente: "))
-    print("Cargando...")
-    time.sleep(2)
+    try:
+        base = int(input("Ingrese la base del juego, por ejemplo 2 o 3 para 2048 o 3072 respectivamente: "))
+        print("Cargando...")
+        time.sleep(2)
 
-    if modality == "1":
-        movements_reseter()
-        score_reseter()
-        nameUser = input("\nIngrese su nombre: ")
-        single_data = single_player(base, nameUser, modality)
+        if modality == "1":
+            movements_reseter()
+            score_reseter()
+            nameUser = input("\nIngrese su nombre: ")
+            single_data = single_player(base, nameUser, modality)
+            
+            print("¡El juego ha terminado!")
+            time.sleep(2)
+            single_scoreboard_formatter(single_data)
+            time.sleep(2)
+            input("Presione 'ENTER' para continuar...")
+            mainLoop()
+
+
+        if modality == "2":
+            multi_player(base, modality)
+            input("Presione 'ENTER' para continuar...")
+            mainLoop()
+
+        if modality == "3":
+            player_vs_machine(base, modality)
+            input("Presione 'ENTER' para continuar...")
+            mainLoop()
         
-        print("¡El juego ha terminado!")
-        time.sleep(2)
-        single_scoreboard_formatter(single_data)
-        time.sleep(2)
-        input("Presione enter para continuar: ")
-        mainLoop()
-
-
-    if modality == "2":
-        multi_player(base, modality)
-        input("Presione enter para continuar: ")
-        mainLoop()
-
-    if modality == "3":
-        player_vs_machine(base, modality)
-        input("Presione enter para continuar: ")
-        mainLoop()
+    except ValueError:
+        print("\nNúmero ingresado inválido, por favor ingresa un número válido.\n")
+        return menu(modality)

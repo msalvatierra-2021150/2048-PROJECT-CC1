@@ -19,17 +19,14 @@ def multi_player(base, modality):
     time.sleep(2)
     input("presione 'Enter' para siguiente jugador...")
 
-
     #segundo jugador
-    movements_reseter()
     score_reseter()
+    movements_reseter()
     print("\n\nTurno del jugador: ", p2_name)
     data_p2 = single_player(base, p2_name, modality)
     print("¡El juego ha terminado!")
     
-    
     time.sleep(2)
-
     scoreboard_formatter(p1_name, data_p1, p2_name, data_p2, base)
     time.sleep(2)
     movements_reseter()

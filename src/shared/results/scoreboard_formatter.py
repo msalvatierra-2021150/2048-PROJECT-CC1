@@ -5,9 +5,9 @@ def single_scoreboard_formatter(single_data):
     print("---------------------------------------")
     print("|          SCORE BOARD                 ")
     print("|----------------------------|")
-    print(f"| Maximo puntaje en tabla    | {single_data[1]}")
-    print(f"| Puntaje Acumulado          | {single_data[0]}")
-    print(f"| Cantidad de movimiento     | {single_data[2]}")
+    print(f"| Numero Maximo             | {single_data[1]}")
+    print(f"| Puntaje Acumulado         | {single_data[0]}")
+    print(f"| Cantidad de movimiento    | {single_data[2]}")
     print("---------------------------------------")
 
     
@@ -31,7 +31,7 @@ def scoreboard_formatter (p1_name, data_p1, p2_name, data_p2, base):
     print("|                   SCORE BOARD                   |")
     print("|-------------------------------------------------|")
     print(f"|                            | {p1_name} | {p2_name} ")
-    print(f"| Maximo puntaje en tabla    | {p1_max_board_num} | {p2_max_board_num} ")
+    print(f"| Numero Maximo              | {p1_max_board_num} | {p2_max_board_num} ")
     print(f"| Puntaje Acumulado          | {p1_max_score} | {p2_max_score} ")
     print(f"| Cantidad de movimiento     | {p1_max_moves} | {p2_max_moves} ")
     print("---------------------------------------------------")

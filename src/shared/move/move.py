@@ -2,6 +2,7 @@ from ..operations.add_random_tile import add_random_tile
 from .movements import move_left, move_right, move_up, move_down, points, sum
 
 random_variable = 1
+
 single_cc_movements = 0
 p1_cc_movements = 0
 p2_cc_movements = 0
@@ -34,7 +35,7 @@ def move(grid, direction, base, nameUser, modality, print_index):
             single_cc_movements += 1
             cc_movements = single_cc_movements
 
-        if modality == "2":
+        if modality in ["2", "3"]:
             
             if random_variable % 2 == 0:
                 p2_cc_movements += 1
