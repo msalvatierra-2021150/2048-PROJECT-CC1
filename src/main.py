@@ -1,10 +1,10 @@
 from .use_cases.single_player import single_player
-from .shared.scoreboard_formatter import single_scoreboard_formatter
+from .shared.results.scoreboard_formatter import single_scoreboard_formatter
 from .use_cases.multi_player import multi_player
-from .shared.move import movements_reseter
-from .shared.movements import score_reseter
+from .shared.move.move import movements_reseter
+from .shared.move.movements import score_reseter
 from src.helpers.print_2048_instructions import print_2048_instructions
-from .use_cases.player_vs_computer import player_vs_computer
+from .use_cases.player_vs_machine import player_vs_machine
 import time
 
 # Loop para mostrar el menú al usuario.
@@ -61,6 +61,6 @@ def menu(modality):
         mainLoop()
 
     if modality == "3":
-        player_vs_computer(base, modality)
+        player_vs_machine(base, modality)
         input("Presione enter para continuar: ")
         mainLoop()

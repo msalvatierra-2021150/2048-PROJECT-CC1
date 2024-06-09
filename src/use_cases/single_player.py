@@ -1,8 +1,8 @@
-from ..shared.initialize_grid import initialize_grid
-from ..shared.move import move
-from ..shared.board_formatter import board_formatter
-from ..shared.check_for_moves import check_for_moves
-from ..shared.max_cell_searcher import max_cell_searcher
+from ..shared.operations.initialize_grid import initialize_grid
+from ..shared.move.move import move
+from ..shared.results.board_formatter import board_formatter
+from ..shared.operations.check_for_moves import check_for_moves
+from ..shared.operations.max_cell_searcher import max_cell_searcher
 import time
 
 # Modalidad para un jugador

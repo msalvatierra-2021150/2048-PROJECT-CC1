@@ -1,7 +1,7 @@
 from .single_player import single_player
-from ..shared.scoreboard_formatter import scoreboard_formatter
-from ..shared.movements import score_reseter
-from ..shared.move import movements_reseter
+from ..shared.results.scoreboard_formatter import scoreboard_formatter
+from ..shared.move.movements import score_reseter
+from ..shared.move.move import movements_reseter
 import time
 
 
