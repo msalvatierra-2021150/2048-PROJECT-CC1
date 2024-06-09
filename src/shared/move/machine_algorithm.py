@@ -10,7 +10,7 @@ def machine_algorithm(machine_board, base, nameUser):
     for direction in directions:
         sum = 0
         # Pass a deep copy of machine_board to ensure it is not mutated
-        result = move(grid=copy.deepcopy(machine_board), direction=direction, nameUser=nameUser, modality="1", base=base)[1]
+        result = move(grid=copy.deepcopy(machine_board), direction=direction, base=base, nameUser=nameUser, modality="1", print_index=2)[1]
         sums[direction] = result
 
     # Find the direction with the greatest sum

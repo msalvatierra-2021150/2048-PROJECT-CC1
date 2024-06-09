@@ -6,8 +6,7 @@ from .machine import machine
 import time
 
 def player_vs_machine(base, modality):
-    m_player_name = input("Ingresar nombre del jugador 1: ")
-    m_machine_name = 'Oskers'
+    m_player_name = input("Ingresar nombre del jugador: ")
 
     #Turno del primer jugador
     score_reseter()
@@ -19,10 +18,10 @@ def player_vs_machine(base, modality):
 
     #Turno de la máquina
     score_reseter()
-    print("Turno de la máquina: ", m_machine_name)
-    m_machine_data = machine(base=base, nameUser="Oskers", modality=modality) #Agregar funcionalidad de máquina. 
+    print("Turno de la máquina")
+    m_machine_data = machine(base, nameUser="Máquina", modality= modality) #Agregar funcionalidad de máquina. 
 
-    scoreboard_formatter(m_player_name, data_p1, m_machine_name, m_machine_data, base)
+    scoreboard_formatter(m_player_name, data_p1, "Máquina", m_machine_data, base)
     movements_reseter()
 
     return

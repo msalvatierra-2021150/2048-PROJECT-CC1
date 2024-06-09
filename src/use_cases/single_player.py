@@ -30,13 +30,13 @@ def single_player(base, nameUser, modality):
             play = False
             max_cell = max_cell_searcher(player_board)
 
-            return [sum, max_cell, movements]
+            return [points, max_cell, movements]
 
         direction = input("\nIngrese su movimiento a, w, s, d: ")
         if direction and play:
             # Movimiento y posterior impresión
-            player_board, sum, movements = move(player_board, direction, base, nameUser, modality)
-            board_formatter(player_board, sum=sum)
+            player_board, sum, points, movements = move(player_board, direction, base, nameUser, modality, print_index=1)
+            board_formatter(player_board, sum=points)
 
             # Chequeo si gano el juego
             for i in range(4):
@@ -45,4 +45,4 @@ def single_player(base, nameUser, modality):
                     play = False
                     max_cell = max_cell_searcher(player_board)
 
-                    return [sum, max_cell, movements]
+                    return [points, max_cell, movements]

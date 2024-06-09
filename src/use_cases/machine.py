@@ -21,7 +21,7 @@ def machine(base, nameUser, modality):
 
     # Se genera el tablero y se imprime
     machine_board = initialize_grid(base, modality)
-    board_formatter(grid=machine_board, sum=0)
+    board_formatter(machine_board, sum=0)
     # Se inicia un ciclo para pedir el movimiento e imprimir el tablero
     play = True
     while play:
@@ -31,15 +31,15 @@ def machine(base, nameUser, modality):
             play = False
             max_cell = max_cell_searcher(machine_board)
 
-            return [sum, max_cell, movements]
+            return [points, max_cell, movements]
 
         input("\nPresione ENTER para que la máquina se mueva: ")
-        direction = machine_algorithm(machine_board, base, nameUser=nameUser)
+        direction = machine_algorithm(machine_board, base, nameUser)
         print(direction)
         if direction and play:
             # Movimiento y posterior impresión
-            machine_board, sum, movements = move(machine_board, direction, base, nameUser, modality)
-            board_formatter(machine_board, sum=sum)
+            machine_board, sum, points, movements = move(machine_board, direction, base, nameUser, modality, print_index=1)
+            board_formatter(machine_board, sum=points)
 
             # Chequeo si gano el juego
             for i in range(4):
@@ -48,4 +48,4 @@ def machine(base, nameUser, modality):
                     play = False
                     max_cell = max_cell_searcher(machine_board)
 
-                    return [sum, max_cell, movements]
+                    return [points, max_cell, movements]
