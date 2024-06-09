@@ -22,6 +22,7 @@ def machine(base, nameUser, modality):
     # Se genera el tablero y se imprime
     machine_board = initialize_grid(base, modality)
     board_formatter(machine_board, sum=0)
+    old_direction = None
     # Se inicia un ciclo para pedir el movimiento e imprimir el tablero
     play = True
     while play:
@@ -34,7 +35,8 @@ def machine(base, nameUser, modality):
             return [points, max_cell, movements]
 
         input("\nPresione ENTER para que la máquina se mueva: ")
-        direction = machine_algorithm(machine_board, base, nameUser)
+        direction = machine_algorithm(machine_board, base, nameUser, old_direction)
+        old_direction = direction
         print(direction)
         if direction and play:
             # Movimiento y posterior impresión
