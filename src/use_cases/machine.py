@@ -41,7 +41,7 @@ def machine(base, nameUser, modality):
         if direction and play:
             # Movimiento y posterior impresión
             machine_board, sum, points, movements = move(machine_board, direction, base, nameUser, modality, print_index=1)
-            board_formatter(machine_board, sum=points)
+            board_formatter(machine_board, sum=points, movements=movements)
 
             # Chequeo si gano el juego
             for i in range(4):
