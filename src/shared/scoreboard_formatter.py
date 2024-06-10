@@ -1,5 +1,6 @@
 from .scoreboard_analysis import scoreboard_analysis
 
+actual_record = 0
 
 def single_scoreboard_formatter(single_data):
     print("---------------------------------------")
@@ -16,16 +17,30 @@ def single_scoreboard_formatter(single_data):
 
 def scoreboard_formatter (p1_name, data_p1, p2_name, data_p2, base):
 
+    global actual_record
+    
+
     #Datos del primer jugador
     p1_max_board_num = int(data_p1[1])
     p1_max_score = int(data_p1[0])
     p1_max_moves = int(data_p1[2])
 
     #Datos del segundo jugador
-    p2_max_board_num = int (data_p2[1])
+    p2_max_board_num = int(data_p2[1])
     p2_max_score = int(data_p2[0])
     p2_max_moves = int(data_p2[2])
 
+    #Actualización de record actual
+    if p1_max_score > actual_record:
+        if p1_max_score > p2_max_score:
+            actual_record = p1_max_score
+
+    
+    elif p2_max_score > actual_record:
+        if p2_max_score > p1_max_score:
+            actual_record = p2_max_score
+
+    
 
     print("---------------------------------------------------")
     print("|                   SCORE BOARD                   |")
@@ -35,6 +50,9 @@ def scoreboard_formatter (p1_name, data_p1, p2_name, data_p2, base):
     print(f"| Puntaje Acumulado          | {p1_max_score} | {p2_max_score} ")
     print(f"| Cantidad de movimiento     | {p1_max_moves} | {p2_max_moves} ")
     print("---------------------------------------------------")
+    print(f"| Record actual              | {actual_record} | ")
+
+
 
     scoreboard_analysis(p1_name, p2_name, p1_max_board_num, p2_max_board_num, p1_max_score, p2_max_score, p1_max_moves, p2_max_moves, base)
 

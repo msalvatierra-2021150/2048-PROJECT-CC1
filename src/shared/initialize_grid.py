@@ -55,6 +55,3 @@ def initialize_grid(base, modality):
 
         
         return actual_grid
-
-        
-
