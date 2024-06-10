@@ -21,7 +21,7 @@ def machine(base, nameUser, modality):
 
     # Se genera el tablero y se imprime
     machine_board = initialize_grid(base, modality)
-    board_formatter(machine_board, sum=0)
+    board_formatter(machine_board, sum=0, movements=0)
     old_direction = None
     # Se inicia un ciclo para pedir el movimiento e imprimir el tablero
     play = True

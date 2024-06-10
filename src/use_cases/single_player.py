@@ -20,7 +20,7 @@ def single_player(base, nameUser, modality):
 
     # Se genera el tablero y se imprime
     player_board = initialize_grid(base, modality)
-    board_formatter(grid=player_board, sum=0)
+    board_formatter(grid=player_board, sum=0, movements=0)
     # Se inicia un ciclo para pedir el movimiento e imprimir el tablero
     play = True
     while play:
@@ -33,16 +33,17 @@ def single_player(base, nameUser, modality):
             return [points, max_cell, movements]
 
         direction = input("\nIngrese su movimiento a, w, s, d: ")
-        if direction and play:
-            # Movimiento y posterior impresión
-            player_board, sum, points, movements = move(player_board, direction, base, nameUser, modality, print_index=1)
-            board_formatter(player_board, sum=points)
+        if direction.lower() in  ["a", "w", "s", "d"]:
+            if direction.lower() and play:
+                # Movimiento y posterior impresión
+                player_board, sum, points, movements = move(player_board, direction, base, nameUser, modality, print_index=1)
+                board_formatter(player_board, sum=points, movements= movements)
 
-            # Chequeo si gano el juego
-            for i in range(4):
-                if (base * 1024) in player_board[i]:
-                    print("\nLlegó a", base * 1024, "¡felicitaciones has ganado el juego! :D\n")
-                    play = False
-                    max_cell = max_cell_searcher(player_board)
+                # Chequeo si gano el juego
+                for i in range(4):
+                    if (base * 1024) in player_board[i]:
+                        print("\nLlegó a", base * 1024, "¡felicitaciones has ganado el juego! :D\n")
+                        play = False
+                        max_cell = max_cell_searcher(player_board)
 
-                    return [points, max_cell, movements]
+                        return [points, max_cell, movements]
